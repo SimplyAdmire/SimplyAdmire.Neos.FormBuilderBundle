@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<f:base />
+	<title>TYPO3 Form Builder :: Form Manager</title>
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<link href="../../../Public/Css/bootstrap.min.css" rel="stylesheet">
+	<link href="../../../Public/Css/FormManager.css" rel="stylesheet">
+	<link href="{f:uri.resource(package:'SimplyAdmire.Neos.FormBuilderBundle',path:'Styles/style.css')}" rel="stylesheet">
+	<script src="{f:uri.resource(package:'SimplyAdmire.Neos.FormBuilderBundle',path:'Scripts/app.js')}"></script>
+</head>
+<body>
+
+	<div class="neos-container-fluid">
+		<div class="neos-row-fluid">
+			<div class="neos-span6">
+				<f:flashMessages class="flashmessages" />
+				<f:render section="MainContent" />
+			</div>
+			<div class="neos-span3">
+				<div class="neos-well">
+					<f:render section="SecondaryContent" />
+				</div>
+			</div>
+		</div>
+		<hr>
+		<footer>
+			<p>Powered by <a href="http://flow.typo3.org">TYPO3 Flow <img src="../../../Public/Images/flowLogo.png" width="11" height="11" /></a></p>
+		</footer>
+	</div>
+
+	<f:render section="FooterContent" />
+
+	<script src="../../../Public/Library/jquery.min.js"></script>
+	<script src="../../../Public/Library/bootstrap.min.js"></script>
+	<script src="../../../Public/JavaScript/FormManager.js"></script>
+
+</body>
+</html>

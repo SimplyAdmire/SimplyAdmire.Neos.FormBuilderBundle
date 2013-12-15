@@ -1,0 +1,22 @@
+{
+	"name": "simplyadmire/neos-form-builder-bundle",
+	"type": "typo3-flow-package",
+	"description": "Neos Integration for the TYPO3.FormBuilder",
+	"license": "LGPL-3.0+",
+	"authors": [
+		{
+			"name": "Rens Admiraal",
+			"email": "rens@simplyadmire.com",
+			"role": "lead"
+		}
+	],
+	"require": {
+		"typo3/neos": "*",
+		"typo3/formbuilder": "*"
+	},
+	"autoload": {
+		"psr-0": {
+			"SimplyAdmire\\Neos\\FormBuilderBundle": "Classes"
+		}
+	}
+}

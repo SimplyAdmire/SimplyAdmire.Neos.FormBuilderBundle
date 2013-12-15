@@ -1,0 +1,98 @@
+{namespace bundle=SimplyAdmire\Neos\FormBuilderBundle\ViewHelpers}
+<f:layout name="FormManager" /><!DOCTYPE html>
+
+<f:section name="MainContent">
+	<h1>Form Manager</h1>
+	<p>This is the Form Manager of the TYPO3 Form Builder.</p>
+	<h3>Create a new Form:</h3>
+	<a class="neos-btn" id="create-new-form" data-toggle="modal" href="#modalNewForm"><i class="icon icon-plus"></i> New Form</a>
+	<hr />
+	<h3>Edit/Preview existing Forms:</h3>
+	<f:if condition="{forms}">
+		<f:then>
+			<table id="forms" class="neos-table neos-table-striped neos-table-bordered neos-table-condensed">
+				<thead>
+					<tr>
+						<th>Form name</th>
+						<th class="neos-span3">Options</th>
+					</tr>
+				</thead>
+				<tbody>
+					<f:for each="{forms}" as="form">
+						<tr>
+							<td>{form.name} <small>({form.persistenceIdentifier})</small></td>
+							<td>
+								<bundle:link.action package="TYPO3.FormBuilder" controller="FormManager" action="show" target="_blank" arguments="{formPersistenceIdentifier: form.persistenceIdentifier}" title="Preview this form" class="icon icon-search preview" />
+								<bundle:link.action package="TYPO3.FormBuilder" controller="Editor" action="index" target="_blank" arguments="{formPersistenceIdentifier: form.persistenceIdentifier}" title="Edit this form" class="icon icon-pencil edit" />
+								<a href="#modalDuplicateForm" title="duplicate" data-form-name="{form.name}" data-form-persistence-identifier="{form.persistenceIdentifier}" class="icon icon-plus-sign duplicate"></a>
+							</td>
+						</tr>
+					</f:for>
+				</tbody>
+			</table>
+		</f:then>
+		<f:else>
+			<p>There are no forms yet. Click <a data-toggle="neos-modal" href="#modalNewForm">here</a> to create the first form.</p>
+		</f:else>
+	</f:if>
+</f:section>
+<f:section name="SecondaryContent">
+	<h3>Instructions</h3>
+	<p>Click on the <strong>New Form</strong> button to create a new Form from scratch.</p>
+	<p>Or click on the icons in order to <strong><i class="icon icon-search"></i> preview</strong>, <strong><i class="icon icon-pencil"></i> edit</strong> or <strong><i class="icon icon-plus-sign"></i> duplicate</strong> existing forms.</p>
+</f:section>
+
+<f:section name="FooterContent">
+	<div class="neos-modal neos-hide" id="modalNewForm">
+		<bundle:form target="_blank" package="TYPO3.FormBuilder" controller="FormManager" action="create" class="form-horizontal">
+			<fieldset>
+				<div class="neos-modal-header">
+					<button type="button" class="neos-close neos-button" data-dismiss="modal"></button>
+					<div class="neos-header">New Form</div>
+				</div>
+				<div class="neos-modal-body">
+					<div class="neos-control-group">
+						<label class="neos-control-label" for="newFormName">Form Name</label>
+						<div class="neos-controls">
+							<f:form.textfield name="formName" id="newFormName" class="neos-input-large" />
+						</div>
+					</div>
+					<div class="neos-control-group">
+						<label class="neos-control-label" for="newFormTemplate">Form Template</label>
+						<div class="neos-controls">
+							<f:form.select name="templatePath" id="newFormTemplate" options="{newFormTemplates}" />
+						</div>
+					</div>
+				</div>
+				<div class="neos-modal-footer">
+					<button class="neos-btn neos-btn-primary">Create Form</button>
+					<button class="neos-btn" data-dismiss="modal">Cancel</button>
+				</div>
+			</fieldset>
+		</bundle:form>
+	</div>
+
+	<div class="neos-modal neos-hide" id="modalDuplicateForm">
+		<bundle:form package="TYPO3.FormBuilder" controller="FormManager" target="_blank" action="duplicate" class="neos-form-horizontal">
+			<fieldset>
+				<div class="neos-modal-header">
+					<button type="button" class="neos-close neos-button" data-dismiss="modal"></button>
+					<div class="neos-header">Duplicate Form &quot;<span class="formName"></span>&quot;</div>
+				</div>
+				<div class="neos-modal-body">
+					<div class="neos-control-group">
+						<label class="neos-control-label" for="duplicateFormName">Form Name</label>
+						<div class="neos-controls">
+							<f:form.textfield name="formName" id="duplicateFormName" class="neos-input-large" />
+						</div>
+					</div>
+				</div>
+				<div class="neos-modal-footer">
+					<f:form.hidden name="formPersistenceIdentifier" class="formPersistenceIdentifier" />
+					<button class="neos-btn neos-btn-primary">Duplicate Form</button>
+					<button class="neos-btn" data-dismiss="modal">Cancel</button>
+				</div>
+			</fieldset>
+		</bundle:form>
+	</div>
+</f:section>

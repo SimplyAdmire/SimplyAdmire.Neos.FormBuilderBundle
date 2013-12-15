@@ -1,0 +1,19 @@
+-
+  name:  'FormBuilder with controller and action'
+  uriPattern: 'neos/management/formbuilder/{@controller}(/{@action})'
+  defaults:
+    '@package':    'TYPO3.FormBuilder'
+    '@controller': 'FormManager'
+    '@action':     'index'
+    '@format':     'html'
+  appendExceedingArguments: TRUE
+
+-
+  name:  'FormBuilder with controller and action and formPersistenceIdentifier'
+  uriPattern: 'neos/management/formbuilder/{@controller}/{@action}/{formPersistenceIdentifier}(/{presetName})'
+  defaults:
+    '@package':    'TYPO3.FormBuilder'
+    '@controller': 'FormManager'
+    '@action':     'index'
+    '@format':     'html'
+  appendExceedingArguments: TRUE

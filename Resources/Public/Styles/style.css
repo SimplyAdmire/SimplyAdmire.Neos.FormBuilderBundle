@@ -1,0 +1,11 @@
+#forms tbody > tr:nth-child(odd) > td {
+	background-color: #323232;
+}
+
+.neos .neos-well {
+	background-color: #323232;
+}
+
+h1, h2, h3 {
+	color: white;
+}

@@ -1,0 +1,11 @@
+TYPO3:
+  Neos:
+    modules:
+      management:
+        submodules:
+          formbuilder:
+            label: 'Form Builder'
+            controller: '\TYPO3\FormBuilder\Controller\FormManagerController'
+            description: 'Form Builder'
+            icon: 'icon-edit'
+            resource: 'TYPO3_FormBuilder_FormManager'

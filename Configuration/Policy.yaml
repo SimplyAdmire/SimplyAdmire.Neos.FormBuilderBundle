@@ -1,0 +1,12 @@
+# Formbuilder ACL's
+acls:
+  'TYPO3.Neos:Editor':
+    methods:
+      'TYPO3_FormBuilder_Standard': GRANT
+      'TYPO3_FormBuilder_FormManager': GRANT
+      'TYPO3_FormBuilder_Editor': GRANT
+  Everybody:
+    methods:
+      'TYPO3_FormBuilder_Standard': GRANT
+      'TYPO3_FormBuilder_FormManager': GRANT
+      'TYPO3_FormBuilder_Editor': GRANT
