@@ -9,3 +9,11 @@ TYPO3:
             description: 'Form Builder'
             icon: 'icon-edit'
             resource: 'TYPO3_FormBuilder_FormManager'
+
+  Form:
+    presets:
+      default:
+        finisherPresets:
+          'SimplyAdmire.Neos.FormBuilderBundle:Email':
+            implementationClassName: 'SimplyAdmire\Neos\FormBuilderBundle\Finishers\EmailFinisher'
+            options: {}
