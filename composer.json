@@ -6,8 +6,11 @@
 	"authors": [
 		{
 			"name": "Rens Admiraal",
-			"email": "rens@simplyadmire.com",
-			"role": "lead"
+			"email": "rens@simplyadmire.com"
+		},
+		{
+			"name": "Henjo Hoeksma",
+			"email": "henjo@simplyadmire.com"
 		}
 	],
 	"require": {
