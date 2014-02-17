@@ -9,6 +9,9 @@ TYPO3:
             description: 'Form Builder'
             icon: 'icon-edit'
             resource: 'TYPO3_FormBuilder_FormManager'
+    userInterface:
+      requireJsPathMapping:
+        'SimplyAdmire.Neos.FormBuilderBundle/Inspector/Editors': 'resource://SimplyAdmire.Neos.FormBuilderBundle/Public/Scripts/Inspector/Editors/'
 
   Form:
     presets:
@@ -16,4 +19,3 @@ TYPO3:
         finisherPresets:
           'SimplyAdmire.Neos.FormBuilderBundle:Email':
             implementationClassName: 'SimplyAdmire\Neos\FormBuilderBundle\Finishers\EmailFinisher'
-            options: {}

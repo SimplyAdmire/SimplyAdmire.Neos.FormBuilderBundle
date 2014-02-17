@@ -1,4 +1,13 @@
 -
+  name:  'Available forms'
+  uriPattern: 'neos/management/formbuilder/list'
+  defaults:
+    '@package':    'SimplyAdmire.Neos.FormBuilderBundle'
+    '@controller': 'Form'
+    '@action':     'index'
+    '@format':     'json'
+
+-
   name:  'FormBuilder with controller and action'
   uriPattern: 'neos/management/formbuilder/{@controller}(/{@action})'
   defaults:
