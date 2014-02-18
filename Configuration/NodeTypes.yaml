@@ -1,0 +1,8 @@
+'TYPO3.Neos.NodeTypes:Form':
+  properties:
+    formIdentifier:
+      ui:
+        inspector:
+          editor: 'SimplyAdmire.Neos.FormBuilderBundle/Inspector/Editors/FormSelectBoxEditor'
+          editorOptions:
+            placeholder: 'Select the Form identifier'
