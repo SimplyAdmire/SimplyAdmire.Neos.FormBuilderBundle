@@ -45,7 +45,7 @@ define(
 						var values = [], option;
 
 						$(data).each(function(value) {
-							values.push({'value': data[value].identifier, 'label': data[value].identifier});
+							values.push({'value': data[value].identifier, 'label': data[value].name});
 						});
 
 						that.set('values', values);
