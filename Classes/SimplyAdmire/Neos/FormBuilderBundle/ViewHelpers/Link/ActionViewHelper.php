@@ -70,13 +70,6 @@ class ActionViewHelper extends \TYPO3\Fluid\Core\ViewHelper\AbstractTagBasedView
 		try {
 			$uri = $uriBuilder->uriFor($action, $arguments, $controller, $package, $subpackage);
 		} catch (\Exception $exception) {
-			\TYPO3\Flow\var_dump(array(
-				$package,
-				$controller,
-				$action,
-				$arguments
-			));
-
 			throw new ViewHelper\Exception($exception->getMessage(), $exception->getCode(), $exception);
 		}
 

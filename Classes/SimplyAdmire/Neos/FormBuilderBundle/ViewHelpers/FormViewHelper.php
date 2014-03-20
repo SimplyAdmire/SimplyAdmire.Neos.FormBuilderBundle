@@ -61,8 +61,6 @@ class FormViewHelper extends \TYPO3\Fluid\ViewHelpers\FormViewHelper {
 				$this->formActionUri = $uriBuilder
 					->uriFor($this->arguments['action'], $this->arguments['arguments'], $this->arguments['controller'], $this->arguments['package'], $this->arguments['subpackage']);
 			} catch (\Exception $exception) {
-				\TYPO3\Flow\var_dump($this->arguments);
-
 				throw new ViewHelper\Exception($exception->getMessage(), $exception->getCode(), $exception);
 			}
 		}
