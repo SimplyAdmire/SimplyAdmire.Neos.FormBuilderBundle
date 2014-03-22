@@ -15,7 +15,8 @@
 	],
 	"require": {
 		"typo3/neos": "*",
-		"typo3/formbuilder": "*"
+		"typo3/formbuilder": "*",
+		"typo3/neos-nodetypes": "*"
 	},
 	"autoload": {
 		"psr-0": {
