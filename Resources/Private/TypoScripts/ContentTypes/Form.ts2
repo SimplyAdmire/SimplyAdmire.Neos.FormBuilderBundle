@@ -1,0 +1,3 @@
+prototype(TYPO3.Neos.NodeTypes:Form) {
+	templatePath = 'resource://SimplyAdmire.Neos.FormBuilderBundle/Private/Templates/ContentTypes/Form.html'
+}
