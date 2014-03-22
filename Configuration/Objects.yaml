@@ -1,0 +1,2 @@
+TYPO3\Form\Persistence\FormPersistenceManagerInterface:
+  className: SimplyAdmire\Neos\FormBuilderBundle\Form\Persistence\YamlPersistenceManager
