@@ -44,9 +44,9 @@ define(
 					success: function(data) {
 						var values = [], option;
 
-						$(data).each(function(value) {
-							values.push({'value': data[value].identifier, 'label': data[value].name});
-						});
+						for (key in data) {
+                            values.push({'value': data[key].identifier, 'label': data[key].name});
+                        }
 
 						that.set('values', values);
 						that.get('options');
