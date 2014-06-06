@@ -9,3 +9,14 @@
 h1, h2, h3 {
 	color: white;
 }
+.neos-control-label {
+	color: white;
+}
+.neos .neos-control-group {
+	margin: 1.25em;
+}
+
+.neos-module-management-formbuilder * {
+	font-family: 'Noto Sans', sans-serif;
+	-webkit-font-smoothing: antialiased;
+}
