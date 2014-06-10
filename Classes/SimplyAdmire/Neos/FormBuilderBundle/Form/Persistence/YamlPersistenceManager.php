@@ -23,7 +23,19 @@ class YamlPersistenceManager extends \TYPO3\Form\Persistence\YamlPersistenceMana
 	 */
 	public function initializeObject() {
 		$settings = $this->configurationManager->getConfiguration(\TYPO3\Flow\Configuration\ConfigurationManager::CONFIGURATION_TYPE_SETTINGS, 'TYPO3.Form');
-		parent::injectSettings($settings);
+		$this->injectSettings($settings);
+	}
+
+	/**
+	 * @param array $settings
+	 */
+	public function injectSettings(array $settings) {
+		if (isset($settings['yamlPersistenceManager']['savePath'])) {
+			$this->savePath = $settings['yamlPersistenceManager']['savePath'];
+			if (!is_dir($this->savePath) && !is_link($this->savePath)) {
+				\TYPO3\Flow\Utility\Files::createDirectoryRecursively($this->savePath);
+			}
+		}
 	}
 
 	/**
