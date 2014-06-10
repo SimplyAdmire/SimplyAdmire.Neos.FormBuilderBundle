@@ -40,8 +40,9 @@ class YamlPersistenceManager extends \TYPO3\Form\Persistence\YamlPersistenceMana
 			return $globalPath;
 		}
 
+		/** @var \TYPO3\Flow\Package\Package $package */
 		foreach ($this->packageManager->getActivePackages() as $package) {
-			$packageFormPath = Files::concatenatePaths(array($package->getPackagePath(), 'Forms', $formFileName));
+			$packageFormPath = 'resource://' . $package->getPackageKey() . '/Private/Forms/' . $formFileName;
 			if (file_exists($packageFormPath)) {
 				return $packageFormPath;
 			}
@@ -57,8 +58,9 @@ class YamlPersistenceManager extends \TYPO3\Form\Persistence\YamlPersistenceMana
 		$forms = array();
 		$originalSavePath = $this->savePath;
 
+		/** @var \TYPO3\Flow\Package\Package $package */
 		foreach ($this->packageManager->getActivePackages() as $package) {
-			$this->savePath = Files::concatenatePaths(array($package->getPackagePath(), 'Forms'));
+			$this->savePath = 'resource://' . $package->getPackageKey() . '/Private/Forms';
 
 			if (!is_dir($this->savePath)) {
 				continue;
