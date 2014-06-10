@@ -1,0 +1,43 @@
+<h4>{{label}}{{#view Ember.Button target="parentView" action="remove" isVisibleBinding="notRequired" class="typo3-formbuilder-removeButton"}}Remove{{/view}}</h4>
+
+<div class="typo3-formbuilder-controlGroup">
+	<label>Subject</label>
+	<div class="typo3-formbuilder-controls">
+		{{view Ember.TextField valueBinding="currentCollectionElement.options.subject"}}
+	</div>
+</div>
+
+<div class="typo3-formbuilder-controlGroup">
+	<label>Recipient Address</label>
+	<div class="typo3-formbuilder-controls">
+		{{view Ember.TextField valueBinding="currentCollectionElement.options.recipientAddress"}}
+	</div>
+</div>
+
+<div class="typo3-formbuilder-controlGroup">
+	<label>Recipient Name</label>
+	<div class="typo3-formbuilder-controls">
+		{{view Ember.TextField valueBinding="currentCollectionElement.options.recipientName"}}
+	</div>
+</div>
+
+<div class="typo3-formbuilder-controlGroup">
+	<label>Sender Address</label>
+	<div class="typo3-formbuilder-controls">
+		{{view Ember.TextField valueBinding="currentCollectionElement.options.senderAddress"}}
+	</div>
+</div>
+
+<div class="typo3-formbuilder-controlGroup">
+	<label>Sender Name</label>
+	<div class="typo3-formbuilder-controls">
+		{{view Ember.TextField valueBinding="currentCollectionElement.options.senderName"}}
+	</div>
+</div>
+
+<div class="typo3-formbuilder-controlGroup">
+	<label>Reply-To Address</label>
+	<div class="typo3-formbuilder-controls">
+		{{view Ember.TextField valueBinding="currentCollectionElement.options.replyToAddress"}}
+	</div>
+</div>
