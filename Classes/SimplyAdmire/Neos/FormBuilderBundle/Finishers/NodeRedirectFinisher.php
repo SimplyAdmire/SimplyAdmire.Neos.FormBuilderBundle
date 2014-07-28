@@ -52,7 +52,7 @@ class NodeRedirectFinisher extends \TYPO3\Form\Core\Model\AbstractFinisher {
 		$uri = $uriBuilder
 			->reset()
 			->setCreateAbsoluteUri(TRUE)
-			->uriFor('show', array('node' => $node->getIdentifier()), 'Frontend\Node', 'TYPO3.Neos');
+			->uriFor('show', array('node' => $node->getPath()), 'Frontend\Node', 'TYPO3.Neos');
 
 		$delay = (integer)$this->parseOption('delay');
 		$statusCode = $this->parseOption('statusCode');
@@ -66,6 +66,8 @@ class NodeRedirectFinisher extends \TYPO3\Form\Core\Model\AbstractFinisher {
 		if ($delay === 0) {
 			$mainResponse->setHeader('Location', (string)$uri);
 		}
+
+		$mainResponse->send();
  	}
 
 }
