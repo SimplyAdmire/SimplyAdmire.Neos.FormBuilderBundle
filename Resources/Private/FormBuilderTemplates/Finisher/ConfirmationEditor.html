@@ -1,0 +1,14 @@
+<h4>{{label}}{{#view Ember.Button target="parentView" action="remove" isVisibleBinding="notRequired" class="typo3-formbuilder-removeButton"}}Remove{{/view}}</h4>
+
+<div class="typo3-formbuilder-controlGroup">
+	<label>Confirmation message</label>
+	<div class="typo3-formbuilder-controls">
+		{{view Ember.TextArea valueBinding="currentCollectionElement.options.message" class="confirmation-editor"}}
+
+		<div id="dialog-confirmation-editor">
+			<p class="hallo-editor"></p>
+		</div>
+
+		{{#view EditButton}}Edit{{/view}}
+	</div>
+</div>

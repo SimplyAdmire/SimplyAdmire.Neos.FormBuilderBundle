@@ -33,13 +33,27 @@ TYPO3:
                     'SimplyAdmire.Neos.FormBuilderBundle:NodeRedirect':
                       label: 'Node Redirect (FormBuilder bundle)'
                       viewName: 'TYPO3.FormBuilder.View.ElementOptionsPanel.Editor.FinisherEditor.FormBuilderBundleNodeRedirectFinisherEditor'
+                    'TYPO3.Form:Confirmation':
+                      label: 'Confirmation (FormBuilder bundle)'
+                      viewName: 'TYPO3.FormBuilder.View.ElementOptionsPanel.Editor.FinisherEditor.FormBuilderBundleConfirmationFinisherEditor'
 
   FormBuilder:
     javaScripts:
       formBuilderBundle:
         sorting: 120
-        files: ['resource://SimplyAdmire.Neos.FormBuilderBundle/Public/Scripts/FormBuilder/finishers.js']
+        files:
+          - 'resource://SimplyAdmire.Neos.FormBuilderBundle/Public/Scripts/Library/rangy-core.js'
+          - 'resource://SimplyAdmire.Neos.FormBuilderBundle/Public/Scripts/Library/hallo.js'
+          - 'resource://SimplyAdmire.Neos.FormBuilderBundle/Public/Scripts/FormBuilder/finishers.js'
+    stylesheets:
+      formBuilderBundle:
+        sorting: 120
+        files:
+          - 'resource://SimplyAdmire.Neos.FormBuilderBundle/Public/Styles/ui/jquery-ui-1.8.16.custom.css'
+          - 'resource://SimplyAdmire.Neos.FormBuilderBundle/Public/Styles/formbuilder.css'
+
     handlebarsTemplates:
       # Finisher Editors
       Finisher-FormBuilderBundleEmailEditor: resource://SimplyAdmire.Neos.FormBuilderBundle/Private/FormBuilderTemplates/Finisher/EmailEditor.html
       Finisher-FormBuilderBundleNodeRedirectEditor: resource://SimplyAdmire.Neos.FormBuilderBundle/Private/FormBuilderTemplates/Finisher/NodeRedirectEditor.html
+      Finisher-TYPO3FormConfirmationEditor: resource://SimplyAdmire.Neos.FormBuilderBundle/Private/FormBuilderTemplates/Finisher/ConfirmationEditor.html
