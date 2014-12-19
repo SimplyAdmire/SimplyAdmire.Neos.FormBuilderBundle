@@ -1,8 +1,16 @@
 'TYPO3.Neos.NodeTypes:Form':
   properties:
+# Deprecated as of Neos 1.2.0
+#    formIdentifier:
+#      ui:
+#        inspector:
+#          editor: 'SimplyAdmire.Neos.FormBuilderBundle/Inspector/Editors/FormSelectBoxEditor'
+#          editorOptions:
+#            placeholder: 'Select the Form identifier'
     formIdentifier:
       ui:
         inspector:
-          editor: 'SimplyAdmire.Neos.FormBuilderBundle/Inspector/Editors/FormSelectBoxEditor'
+          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
           editorOptions:
-            placeholder: 'Select the Form identifier'
+           placeholder: 'Select the Form identifier'
+           dataSourceIdentifier: 'simplyadmire-neos-formbuilderbundle'
