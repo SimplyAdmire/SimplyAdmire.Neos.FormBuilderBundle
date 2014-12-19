@@ -30,7 +30,10 @@ class FormsDataSource extends AbstractDataSource {
 		$formIdentifiers = array();
 
 		foreach ($forms as $key => $value) {
-			$formIdentifiers[$key] = array('label' => $value['name']);
+			$formIdentifiers[$key] = array(
+				'label' => $value['name'],
+				'value' => $key
+			);
 		}
 
 		return $formIdentifiers;
