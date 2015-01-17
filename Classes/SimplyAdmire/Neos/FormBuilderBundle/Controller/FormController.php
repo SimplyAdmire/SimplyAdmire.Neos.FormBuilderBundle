@@ -13,10 +13,12 @@ class FormController extends ActionController {
 	protected $formPersistenceManager;
 
 	/**
+	 * @deprecated Deprecated as of Neos 1.2.0
 	 * @return void
 	 */
 	public function indexAction() {
 		$this->response->setHeader('Content-Type', 'application/json');
+
 		return json_encode($this->formPersistenceManager->listForms());
 	}
 
