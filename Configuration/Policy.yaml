@@ -2,7 +2,7 @@
 privilegeTargets:
   TYPO3\Flow\Security\Authorization\Privilege\Method\MethodPrivilege:
     TYPO3_FormBuilder_Standard:
-      matcher: 'method((TYPO3\FormBuilder\Controller\StandardController|SimplyAdmire\Neos\FormBuilderBundle\Controller\FormController)->.*Action())'
+      matcher: 'method(TYPO3\FormBuilder\Controller\StandardController|SimplyAdmire\Neos\FormBuilderBundle\Controller\FormController->.*Action())'
     TYPO3_FormBuilder_FormManager:
       matcher: 'method(TYPO3\FormBuilder\Controller\FormManagerController->.*Action())'
     TYPO3_FormBuilder_Editor:
