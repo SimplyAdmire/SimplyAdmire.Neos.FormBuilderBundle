@@ -30,8 +30,8 @@ class EmailFinisher extends \TYPO3\Form\Finishers\EmailFinisher {
 		if (substr($value, 0, 16) === 'fieldIdentifier:') {
 			$formRuntime = $this->finisherContext->getFormRuntime();
 			$field = str_replace('fieldIdentifier:', '', $value);
-			if ($formRuntime->getRequest()->hasArgument($field)) {
-				return $formRuntime->getRequest()->getArgument($field);
+			if ($formRuntime->getFormState()->getFormValue($field)) {
+				return $formRuntime->getFormState()->getFormValue($field);
 			}
 		}
 
