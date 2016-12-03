@@ -13,61 +13,121 @@ namespace SimplyAdmire\Neos\FormBuilderBundle\Finishers;
 
 use TYPO3\Flow\Annotations as Flow;
 use TYPO3\Flow\Mvc\Routing\UriBuilder;
+use TYPO3\Flow\Utility\Arrays;
+use TYPO3\Neos\Domain\Repository\DomainRepository;
+use TYPO3\Neos\Domain\Repository\SiteRepository;
+use TYPO3\Neos\Domain\Service\ContentContext;
+use TYPO3\Neos\Domain\Service\ContentContextFactory;
+use TYPO3\Neos\Service\LinkingService;
 
 /**
  * This finisher redirects to a specified nodePath.
  * @author support@simplyadmire.com
  */
-class NodeRedirectFinisher extends \TYPO3\Form\Core\Model\AbstractFinisher {
+class NodeRedirectFinisher extends \TYPO3\Form\Core\Model\AbstractFinisher
+{
 
-	/**
-	 * @var array
-	 */
-	protected $defaultOptions = array(
-		'nodePath' => NULL,
-		'delay' => 0,
-		'statusCode' => 303,
-	);
+    /**
+     * @var array
+     */
+    protected $defaultOptions = [
+        'nodePath' => NULL,
+        'delay' => 0,
+        'statusCode' => 303
+    ];
 
-	/**
-	 * @Flow\Inject
-	 * @var \TYPO3\TYPO3CR\Domain\Service\ContextFactoryInterface
-	 */
-	protected $contextFactory;
+    /**
+     * @Flow\Inject
+     * @var LinkingService
+     */
+    protected $linkingService;
 
-	/**
-	 * Executes this finisher
-	 * @see AbstractFinisher::execute()
-	 *
-	 * @return void
-	 * @throws \TYPO3\Form\Exception\FinisherException
-	 */
-	protected function executeInternal() {
-		/** @var \TYPO3\Neos\Domain\Service\ContentContext $contentContext */
-		$contentContext = $this->contextFactory->create(array());
-		$node = $contentContext->getNode($this->parseOption('nodePath'));
+    /**
+     * @var ContentContext
+     */
+    protected $contentContext;
 
-		$uriBuilder = new UriBuilder();
-		$uriBuilder->setRequest($this->finisherContext->getFormRuntime()->getRequest()->getMainRequest());
-		$uri = $uriBuilder
-			->reset()
-			->setCreateAbsoluteUri(TRUE)
-			->uriFor('show', array('node' => $node->getPath()), 'Frontend\Node', 'TYPO3.Neos');
+    /**
+     * @Flow\Inject
+     * @var ContentContextFactory
+     */
+    protected $contentContextFactory;
 
-		$delay = (integer)$this->parseOption('delay');
-		$statusCode = $this->parseOption('statusCode');
+    /**
+     * @Flow\Inject
+     * @var DomainRepository
+     */
+    protected $domainRepository;
 
-		$escapedUri = htmlentities($uri, ENT_QUOTES, 'utf-8');
+    /**
+     * @Flow\Inject
+     * @var SiteRepository
+     */
+    protected $siteRepository;
 
-		$response = $this->finisherContext->getFormRuntime()->getResponse();
-		$mainResponse = $response;
-		$mainResponse->setContent('<html><head><meta http-equiv="refresh" content="' . $delay . ';url=' . $escapedUri . '"/></head></html>');
-		$mainResponse->setStatus($statusCode);
-		if ($delay === 0) {
-			$mainResponse->setHeader('Location', (string)$uri);
-		}
+    /**
+     * Executes this finisher
+     * @see AbstractFinisher::execute()
+     *
+     * @return void
+     * @throws \TYPO3\Form\Exception\FinisherException
+     */
+    protected function executeInternal()
+    {
 
-		$mainResponse->send();
- 	}
+        /** @var array $contextParameters */
+        $contextParameters = !empty($this->parseOption('dimensions')) ? ['dimensions' => $this->parseOption('dimensions')] : [];
 
+        /** @var \TYPO3\Neos\Domain\Service\ContentContext $contentContext */
+        $contentContext = $this->getContentContext($contextParameters);
+        $node = $contentContext->getNode($this->parseOption('nodePath'));
+
+        $uriBuilder = new UriBuilder();
+        $uriBuilder->setRequest($this->finisherContext->getFormRuntime()->getRequest()->getMainRequest());
+        $uri = $uriBuilder
+            ->reset()
+            ->setCreateAbsoluteUri(TRUE)
+            ->uriFor('show', ['node' => $node], 'Frontend\Node', 'TYPO3.Neos');
+
+        $delay = (integer)$this->parseOption('delay');
+        $statusCode = $this->parseOption('statusCode');
+
+        $escapedUri = htmlentities($uri, ENT_QUOTES, 'utf-8');
+
+        $response = $this->finisherContext->getFormRuntime()->getResponse();
+        $mainResponse = $response;
+        $mainResponse->setContent('<html><head><meta http-equiv="refresh" content="' . $delay . ';url=' . $escapedUri . '"/></head></html>');
+        $mainResponse->setStatus($statusCode);
+        if ($delay === 0) {
+            $mainResponse->setHeader('Location', (string)$uri);
+        }
+
+        $mainResponse->send();
+    }
+
+    /**
+     * @param array $contextProperties
+     * @return ContentContext
+     */
+    public function getContentContext(array $contextProperties = [])
+    {
+        if ($this->contentContext instanceof ContentContext) {
+            return $this->contentContext;
+        }
+
+        $contextPropertiesArray = ['workspaceName' => 'live'];
+        $contextProperties = Arrays::arrayMergeRecursiveOverrule($contextPropertiesArray, $contextProperties);
+
+        $currentDomain = $this->domainRepository->findOneByActiveRequest();
+
+        if ($currentDomain !== NULL) {
+            $contextProperties['currentSite'] = $currentDomain->getSite();
+            $contextProperties['currentDomain'] = $currentDomain;
+        } else {
+            $contextProperties['currentSite'] = $this->siteRepository->findFirstOnline();
+        }
+
+        $this->contentContext = $this->contentContextFactory->create($contextProperties);
+        return $this->contentContext;
+    }
 }
