@@ -1,26 +1,31 @@
 {
-	"name": "simplyadmire/neos-form-builder-bundle",
-	"type": "typo3-flow-package",
-	"description": "Neos Integration for the TYPO3.FormBuilder",
-	"license": "LGPL-3.0+",
-	"authors": [
-		{
-			"name": "Rens Admiraal",
-			"email": "rens@simplyadmire.com"
-		},
-		{
-			"name": "Henjo Hoeksma",
-			"email": "henjo@simplyadmire.com"
-		}
-	],
-	"require": {
-		"typo3/neos": "*",
-		"typo3/formbuilder": "*",
-		"typo3/neos-nodetypes": "*"
-	},
-	"autoload": {
-		"psr-0": {
-			"SimplyAdmire\\Neos\\FormBuilderBundle": "Classes"
-		}
-	}
+    "name": "simplyadmire/neos-form-builder-bundle",
+    "type": "typo3-flow-package",
+    "description": "Neos Integration for the TYPO3.FormBuilder",
+    "license": "LGPL-3.0+",
+    "authors": [
+        {
+            "name": "Rens Admiraal",
+            "email": "rens@simplyadmire.com"
+        },
+        {
+            "name": "Henjo Hoeksma",
+            "email": "henjo@simplyadmire.com"
+        }
+    ],
+    "require": {
+        "typo3/neos": "*",
+        "typo3/formbuilder": "*",
+        "typo3/neos-nodetypes": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "SimplyAdmire\\Neos\\FormBuilderBundle": "Classes"
+        }
+    },
+    "extra": {
+        "applied-flow-migrations": [
+            "TYPO3.FLOW3-201201261636"
+        ]
+    }
 }
