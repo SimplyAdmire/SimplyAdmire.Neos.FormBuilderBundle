@@ -1,11 +1,11 @@
-TYPO3:
+Neos:
   Neos:
     modules:
       management:
         submodules:
           formbuilder:
             label: 'Form Builder'
-            controller: \TYPO3\FormBuilder\Controller\FormManagerController
+            controller: TYPO3\FormBuilder\Controller\FormManagerController
             description: 'Form Builder'
             icon: icon-edit
             privilegeTarget: TYPO3_FormBuilder_FormManager
