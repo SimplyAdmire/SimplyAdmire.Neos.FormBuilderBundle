@@ -26,7 +26,7 @@ class YamlPersistenceManager extends \Neos\Form\Persistence\YamlPersistenceManag
      */
     public function initializeObject()
     {
-        $settings = $this->configurationManager->getConfiguration(ConfigurationManager::CONFIGURATION_TYPE_SETTINGS, 'TYPO3.Form');
+        $settings = $this->configurationManager->getConfiguration(ConfigurationManager::CONFIGURATION_TYPE_SETTINGS, 'Neos.Form');
         $this->injectSettings($settings);
     }
 

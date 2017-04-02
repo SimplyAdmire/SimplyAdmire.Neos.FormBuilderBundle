@@ -5,10 +5,10 @@ Neos:
         submodules:
           formbuilder:
             label: 'Form Builder'
-            controller: TYPO3\FormBuilder\Controller\FormManagerController
+            controller: Neos\FormBuilder\Controller\FormManagerController
             description: 'Form Builder'
             icon: icon-edit
-            privilegeTarget: TYPO3_FormBuilder_FormManager
+            privilegeTarget: Neos_FormBuilder_FormManager
     userInterface:
       requireJsPathMapping:
         SimplyAdmire.Neos.FormBuilderBundle/Inspector/Editors: 'resource://SimplyAdmire.Neos.FormBuilderBundle/Public/Scripts/Inspector/Editors/'
@@ -21,20 +21,20 @@ Neos:
           'SimplyAdmire.Neos.FormBuilderBundle:NodeRedirect':
             implementationClassName: SimplyAdmire\Neos\FormBuilderBundle\Finishers\NodeRedirectFinisher
         formElementTypes:
-          'TYPO3.Form:Form':
+          'Neos.Form:Form':
             formBuilder:
               editors:
                 finishers:
                   availableFinishers:
                     'SimplyAdmire.Neos.FormBuilderBundle:Email':
                       label: 'Send Email (FormBuilder bundle)'
-                      viewName: TYPO3.FormBuilder.View.ElementOptionsPanel.Editor.FinisherEditor.FormBuilderBundleEmailFinisherEditor
+                      viewName: Neos.FormBuilder.View.ElementOptionsPanel.Editor.FinisherEditor.FormBuilderBundleEmailFinisherEditor
                     'SimplyAdmire.Neos.FormBuilderBundle:NodeRedirect':
                       label: 'Node Redirect (FormBuilder bundle)'
-                      viewName: TYPO3.FormBuilder.View.ElementOptionsPanel.Editor.FinisherEditor.FormBuilderBundleNodeRedirectFinisherEditor
-                    'TYPO3.Form:Confirmation':
+                      viewName: Neos.FormBuilder.View.ElementOptionsPanel.Editor.FinisherEditor.FormBuilderBundleNodeRedirectFinisherEditor
+                    'Neos.Form:Confirmation':
                       label: 'Confirmation (FormBuilder bundle)'
-                      viewName: TYPO3.FormBuilder.View.ElementOptionsPanel.Editor.FinisherEditor.FormBuilderBundleConfirmationFinisherEditor
+                      viewName: Neos.FormBuilder.View.ElementOptionsPanel.Editor.FinisherEditor.FormBuilderBundleConfirmationFinisherEditor
   FormBuilder:
     javaScripts:
       formBuilderBundle:
@@ -52,4 +52,4 @@ Neos:
     handlebarsTemplates:
       Finisher-FormBuilderBundleEmailEditor: 'resource://SimplyAdmire.Neos.FormBuilderBundle/Private/FormBuilderTemplates/Finisher/EmailEditor.html'
       Finisher-FormBuilderBundleNodeRedirectEditor: 'resource://SimplyAdmire.Neos.FormBuilderBundle/Private/FormBuilderTemplates/Finisher/NodeRedirectEditor.html'
-      Finisher-TYPO3FormConfirmationEditor: 'resource://SimplyAdmire.Neos.FormBuilderBundle/Private/FormBuilderTemplates/Finisher/ConfirmationEditor.html'
+      Finisher-NeosFormConfirmationEditor: 'resource://SimplyAdmire.Neos.FormBuilderBundle/Private/FormBuilderTemplates/Finisher/ConfirmationEditor.html'

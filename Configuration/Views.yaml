@@ -1,12 +1,12 @@
 -
-  requestFilter: 'isPackage("TYPO3.FormBuilder")'
+  requestFilter: 'isPackage("Neos.FormBuilder")'
   options:
     templateRootPaths:
       - 'resource://SimplyAdmire.Neos.FormBuilderBundle/Private/Templates/'
-      - 'resource://TYPO3.FormBuilder/Private/Templates/'
+      - 'resource://Neos.FormBuilder/Private/Templates/'
     partialRootPaths:
       - 'resource://SimplyAdmire.Neos.FormBuilderBundle/Private/Partials/'
-      - 'resource://TYPO3.FormBuilder/Private/Partials/'
+      - 'resource://Neos.FormBuilder/Private/Partials/'
     layoutRootPaths:
       - 'resource://SimplyAdmire.Neos.FormBuilderBundle/Private/Layouts/'
-      - 'resource://TYPO3.FormBuilder/Private/Layouts/'
+      - 'resource://Neos.FormBuilder/Private/Layouts/'

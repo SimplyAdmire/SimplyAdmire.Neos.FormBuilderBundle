@@ -5,7 +5,7 @@
         <form:render persistenceIdentifier="{formIdentifier}" presetName="{presetName}"/>
     </f:then>
     <f:else>
-        <f:security.ifAccess privilegeTarget="TYPO3_Neos_Backend_GeneralAccess">
+        <f:security.ifAccess privilegeTarget="Neos_Neos_Backend_GeneralAccess">
             <p>Please select a valid Form identifier in the inspector</p>
         </f:security.ifAccess>
     </f:else>

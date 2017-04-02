@@ -8,14 +8,13 @@
 	});
 
 	Editor.FinisherEditor.FormBuilderBundleConfirmationFinisherEditor = Editor.FinisherEditor.EmailFinisherEditor.extend({
-		templateName: 'Finisher-TYPO3FormConfirmationEditor',
+		templateName: 'Finisher-NeosFormConfirmationEditor',
 
 		EditButton: Ember.Button.extend({
 			tagName: 'a',
 			click: function(event) {
 				var that = this,
-					$editor = $('#dialog-confirmation-editor p.hallo-editor');
-
+					$editor = $('#dialog-confirmation-editor').find('p.hallo-editor');
 
 				$editor.html(that.getPath('parentView.currentCollectionElement.options.message'));
 				$editor.hallo({
@@ -35,7 +34,7 @@
 					buttons: {
 						Ok: function() {
 							that.setPath('parentView.currentCollectionElement.options.message', $('#dialog-confirmation-editor p.hallo-editor').html());
-							TYPO3.FormBuilder.Model.Form.set('unsavedContent', true);
+							Neos.FormBuilder.Model.Form.set('unsavedContent', true);
 							$(this).dialog('close');
 						}
 					}
@@ -46,7 +45,6 @@
 		})
 	});
 
-})(TYPO3.FormBuilder.View.ElementOptionsPanel.Editor);
+})(Neos.FormBuilder.View.ElementOptionsPanel.Editor);
 
-
-$( "#dialog-confirm" )
+$("#dialog-confirm");

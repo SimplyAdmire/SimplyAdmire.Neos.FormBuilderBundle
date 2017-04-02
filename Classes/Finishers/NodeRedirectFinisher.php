@@ -1,16 +1,6 @@
 <?php
 namespace SimplyAdmire\Neos\FormBuilderBundle\Finishers;
 
-/*                                                                        *
- * This script belongs to the TYPO3 Flow package "TYPO3.Form".            *
- *                                                                        *
- * It is free software; you can redistribute it and/or modify it under    *
- * the terms of the GNU Lesser General Public License, either version 3   *
- * of the License, or (at your option) any later version.                 *
- *                                                                        *
- * The TYPO3 project - inspiring people to share!                         *
- *                                                                        */
-
 use Neos\Flow\Annotations as Flow;
 use Neos\Flow\Mvc\Routing\UriBuilder;
 use Neos\Form\Core\Model\AbstractFinisher;
@@ -55,7 +45,7 @@ class NodeRedirectFinisher extends AbstractFinisher
         $uri = $uriBuilder
             ->reset()
             ->setCreateAbsoluteUri(true)
-            ->uriFor('show', ['node' => $node->getPath()], 'Frontend\Node', 'TYPO3.Neos');
+            ->uriFor('show', ['node' => $node->getPath()], 'Frontend\Node', 'Neos.Neos');
 
         $delay = (integer)$this->parseOption('delay');
         $statusCode = $this->parseOption('statusCode');

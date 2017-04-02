@@ -15,7 +15,7 @@ class:
 
 .. code::
 
-    TYPO3:
+    Neos:
       Form:
        presets:
          default: # fill in your preset name here, or "default"
