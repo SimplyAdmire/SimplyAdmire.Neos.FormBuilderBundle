@@ -1,4 +1,4 @@
-'TYPO3.Neos.NodeTypes:Form':
+'Neos.Neos.NodeTypes:Form':
   properties:
 # Deprecated as of Neos 1.2.0
 #    formIdentifier:
@@ -10,7 +10,7 @@
     formIdentifier:
       ui:
         inspector:
-          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
+          editor: 'Neos.Neos/Inspector/Editors/SelectBoxEditor'
           editorOptions:
            placeholder: 'Select the Form identifier'
            dataSourceIdentifier: 'simplyadmire-neos-formbuilderbundle'

@@ -3,7 +3,7 @@
 
 <f:section name="MainContent">
 	<h1>Form Manager</h1>
-	<p>This is the Form Manager of the TYPO3 Form Builder.</p>
+	<p>This is the Form Manager of the Neos Form Builder.</p>
 	<h3>Create a new Form:</h3>
 	<a class="neos-btn" id="create-new-form" data-toggle="modal" href="#modalNewForm"><i class="icon icon-plus"></i> New Form</a>
 	<hr />
@@ -22,8 +22,8 @@
 						<tr>
 							<td>{form.name} <small>({form.persistenceIdentifier})</small></td>
 							<td>
-								<bundle:link.action package="TYPO3.FormBuilder" controller="FormManager" action="show" target="_blank" arguments="{formPersistenceIdentifier: form.persistenceIdentifier}" title="Preview this form" class="icon icon-search preview" />
-								<bundle:link.action package="TYPO3.FormBuilder" controller="Editor" action="index" target="_blank" arguments="{formPersistenceIdentifier: form.persistenceIdentifier}" title="Edit this form" class="icon icon-pencil edit" />
+								<bundle:link.action package="Neos.FormBuilder" controller="FormManager" action="show" target="_blank" arguments="{formPersistenceIdentifier: form.persistenceIdentifier}" title="Preview this form" class="icon icon-search preview" />
+								<bundle:link.action package="Neos.FormBuilder" controller="Editor" action="index" target="_blank" arguments="{formPersistenceIdentifier: form.persistenceIdentifier}" title="Edit this form" class="icon icon-pencil edit" />
 								<a href="#modalDuplicateForm" title="duplicate" data-form-name="{form.name}" data-form-persistence-identifier="{form.persistenceIdentifier}" class="icon icon-plus-sign duplicate"></a>
 							</td>
 						</tr>
@@ -44,7 +44,7 @@
 
 <f:section name="FooterContent">
 	<div class="neos-modal neos-hide" id="modalNewForm">
-		<bundle:form target="_blank" package="TYPO3.FormBuilder" controller="FormManager" action="create" class="form-horizontal">
+		<bundle:form target="_blank" package="Neos.FormBuilder" controller="FormManager" action="create" class="form-horizontal">
 			<fieldset>
 				<div class="neos-modal-header">
 					<button type="button" class="neos-close neos-button" data-dismiss="modal"></button>
@@ -73,7 +73,7 @@
 	</div>
 
 	<div class="neos-modal neos-hide" id="modalDuplicateForm">
-		<bundle:form package="TYPO3.FormBuilder" controller="FormManager" target="_blank" action="duplicate" class="neos-form-horizontal">
+		<bundle:form package="Neos.FormBuilder" controller="FormManager" target="_blank" action="duplicate" class="neos-form-horizontal">
 			<fieldset>
 				<div class="neos-modal-header">
 					<button type="button" class="neos-close neos-button" data-dismiss="modal"></button>
