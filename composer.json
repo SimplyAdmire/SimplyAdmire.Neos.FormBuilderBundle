@@ -15,7 +15,7 @@
     ],
     "require": {
         "typo3/neos": "*",
-        "typo3/formbuilder": "*",
+        "typo3/formbuilder": "dev-master#7b7ea57227749af6d24a875172067884804d54e8",
         "typo3/neos-nodetypes": "*"
     },
     "autoload": {
